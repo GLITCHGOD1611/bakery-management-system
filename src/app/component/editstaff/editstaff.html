@@ -1,0 +1,51 @@
+<div class="topcontent">
+  <h1>Update-Staff</h1>
+  <button>
+    <i class="fa-solid fa-user"></i>
+  </button>
+</div>
+
+<div class="maincontaint">
+  <div class="addstaffcontainer">
+    <div class="formwrapper">
+      <input
+        name="Name"
+        class="inputsingle"
+        [(ngModel)]="updatedstaff.name"
+        placeholder="Enter Name"
+      />
+      <input
+        name="Email"
+        class="inputsingle"
+        [(ngModel)]="updatedstaff.email"
+        placeholder="Enter Email"
+      />
+
+      <div class="inputrow">
+        <input
+          name="Password"
+          class="inputdouble"
+          [(ngModel)]="updatedstaff.password"
+          placeholder="Enter Password"
+        />
+        <!-- <input name="Role" class="inputdouble" placeholder="Enter Role" /> -->
+        <select name="role" [(ngModel)]="updatedstaff.role" class="inputdouble">
+          <option value="Admin">Admin</option>
+          <option value="staff">Staff</option>
+        </select>
+      </div>
+
+      <input
+        name="address"
+        class="inputsingle"
+        [(ngModel)]="updatedstaff.address"
+        placeholder="Enter Address"
+      />
+
+      <div class="buttonrow">
+        <button id="button1" (click)="back()">cancle</button>
+        <button id="button2" (click)="updatestaff()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

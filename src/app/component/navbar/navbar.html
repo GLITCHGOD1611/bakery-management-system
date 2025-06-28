@@ -1,0 +1,60 @@
+<div class="page">
+  <div class="container">
+    <div class="left">
+      <div class="sidebar">
+        <div class="logocontainer">
+          <img
+            id="logo"
+            src="assets/icons/bakerylogowhite.png"
+            alt="bakery name logo"
+          />
+        </div>
+        <div class="menu">
+          <ul>
+            <li>
+              <a routerLink="/navbar/dashbord" >
+                <i class="fa-solid fa-house"></i> Dashboard
+              </a>
+            </li>
+            <li>
+              <a routerLink="/navbar/products" >
+                <i class="fa-solid fa-bread-slice"></i> Products
+              </a>
+            </li>
+            <li>
+              <a routerLink="/navbar/orders" >
+                <i class="fa-solid fa-cart-shopping"></i> Orders
+              </a>
+            </li>
+            <li>
+              <a routerLink="/navbar/customers" >
+                <i class="fa-solid fa-users"></i> Customers
+              </a>
+            </li>
+            <li>
+              <a routerLink="/navbar/reports" >
+                <i class="fa-solid fa-chart-line"></i> Reports
+              </a>
+            </li>
+            <li>
+              <a routerLink="/navbar/Staff" >
+               <i class="fa-solid fa-user-tie"></i> manage staff
+              </a>
+            </li>
+            <li id="logout">
+              <a routerLink="/login" >
+               <i class="fa-solid fa-right-from-bracket"></i> logout
+              </a>
+            </li>
+          </ul>
+         
+        </div>
+        
+
+      </div>
+    </div>
+    <div class="right">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

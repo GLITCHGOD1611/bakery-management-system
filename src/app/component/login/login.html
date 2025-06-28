@@ -1,0 +1,28 @@
+<div class="lcontainer">
+  <div class="left">
+    <img id="logo" src="assets/icons/bakery name logo.png" alt="bakery name logo" />
+    <img src="assets/login-page-img.png" alt="Login Image" />
+  </div>
+
+  <div class="right">
+    <div class="login-wrapper">
+      <h1>Welcome back!</h1>
+      <h2 class="login-text">
+        To your <img src="assets/icons/bakery logo.png" alt="cupcake" /> Bakery
+      </h2>
+
+      <div class="input-group">
+        <img src="assets/icons/🦆 icon _envelope closed_.png" class="input-icon" alt="Email Icon" />
+        <input type="text" class="login-input" placeholder="Email" name="username"  [(ngModel)]="username"/>
+        
+      </div>
+
+      <div class="input-group">
+        <img src="assets/icons/password icon.png" class="input-icon" alt="Lock Icon" />
+        <input type="password" class="login-input" placeholder="Password"  [(ngModel)]="password" />
+      </div>
+
+      <button (click)="login()">Login</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="abovetop">
+  <div class="topcontent1">
+    <h1>Manage Staff</h1>
+    <button><i class="fa-solid fa-user"></i></button>
+  </div>
+
+  <div class="topcontent2">
+    <div class="searchbarcontainer">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        type="text"
+        name="searchbar"
+        [(ngModel)]="searchQuery"
+        (input)="filterStaffList()"
+        autocomplete="on"
+        placeholder="Search by name"
+      />
+    </div>
+
+    <select name="role" [(ngModel)]="role" (change)="onRoleChange()">
+      <option value="All" selected>All</option>
+      <option value="Admin">Admin</option>
+      <option value="staff">Staff</option>
+    </select>
+
+    <button class="btn" (click)="addstaff()">Add staff</button>
+  </div>
+</div>
+
+<div class="maincontain">
+  <div class="tablecontainer">
+    <table class="stafftable">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (staffs of filteredStaffList; track $index) {
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ staffs.name | titlecase }}</td>
+            <td>{{ staffs.role | uppercase }}</td>
+            <td>{{ staffs.address | titlecase }}</td>
+            <td>
+              <button class="btn" (click)="editstaff(staffs._id)">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <button class="btn" (click)="deletsatff(staffs._id)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,235 @@
+.abovetop {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  position: relative;
+  top: 0px;
+}
+
+.topcontent1 {
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.topcontent1 button {
+  width: 63px;
+  height: 63px;
+  background-color: #FFF8E2;
+  color: #6B3E26;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.25);
+}
+
+.topcontent1 h1 {
+  font-size: 50px;
+  color: #2B1712;
+  font-weight: 700;
+  margin: 0;
+  
+}
+
+.topcontent2 {
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.topcontent2 .searchbarcontainer {
+  width: 100%;
+  height: 100%;
+  max-width: 475px;
+  max-height: 70px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.topcontent2 .searchbarcontainer i {
+  position: absolute;
+  left: 10px;
+  color: #6B3E26;
+  font-size: 24px;
+}
+
+.topcontent2 input {
+  width: 100%;
+  height: 100%;
+  max-width: 475px;
+  max-height: 70px;
+  border: none;
+  background-color: #FFFFF6;
+  color: #6B3E26;
+  font-size: 20px;
+  padding-left: 40px;
+  border: 1px solid #575A38;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.topcontent2 input:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50);
+}
+
+.topcontent2 button {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 70px;
+  background-color: #FFAC3E;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.topcontent2 button:hover {
+  background-color: #ffa32b;
+}
+
+.topcontent2 button:active {
+  background-color: #e5880f;
+}
+
+.topcontent2 button:disabled {
+  background-color: #B0B3A0;
+  cursor: not-allowed;
+}
+
+.topcontent2 select {
+  width: 100%;
+  height: 100%;
+  max-width: 150px;
+  max-height: 70px;
+  background-color: #FFFFF6;
+  color: #575A38;
+  font-size: 20px;
+  font-weight: 700;
+  border: 1px solid #575A38;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  padding: 5px;
+}
+
+.maincontain {
+  width: 100%;
+  height: 70%;
+  position: relative;
+
+  padding: 30px;
+
+}
+
+.maincontain .tablecontainer {
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+  overflow-y: auto;
+
+
+  border-radius: 14px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid #575A38;
+}
+
+.maincontain .tablecontainer::-webkit-scrollbar {
+  width: 5px;
+}
+
+.maincontain .tablecontainer::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.maincontain .tablecontainer::-webkit-scrollbar-thumb {
+  background-color: #6B3E26;
+  border-radius: 5px;
+}
+
+.maincontain .stafftable {
+  width: 100%;
+  position: relative;
+  top: 0;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  table-layout: fixed;
+
+
+}
+
+.maincontain .stafftable thead {
+  background-color: #FFFFF6;
+  margin-bottom: 1px;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  border-bottom: 1px solid #575A38;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+
+}
+
+.maincontain .stafftable th,
+.maincontain .stafftable td {
+
+  text-align: center;
+  /* height: 80px;  */
+  /* width: 200px;  */
+  padding: 7px;
+  border-bottom: 1px solid #575A38;
+  font-size: 20px;
+  color: #2B1712;
+  vertical-align: middle;
+
+}
+
+
+.maincontain .stafftable td .btn {
+  height: 40px;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #FDF8E9;
+  color: #DE7E0A;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  border: 1px solid #E7E0C9;
+}
+
+.maincontain .stafftable td .btn:hover {
+  background-color: #fffbef;
+}
+
+.maincontain .stafftable td .btn:active {
+  background-color: #fffaec;
+  border: black 1px solid;
+}
