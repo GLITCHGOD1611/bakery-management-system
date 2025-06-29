@@ -1,0 +1,109 @@
+.order-container {
+  width: 90%;
+  
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffdf3;
+  padding: 30px;
+  border-radius: 10px;
+  height: 80%;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+.order-container1 {
+  width: 100%;
+  
+
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffdf3;
+  padding: 10px;
+  border-radius: 10px;
+  height: 100%;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+ 
+}
+
+.order-container h1 {
+  font-size: 32px;
+  color: #2b1712;
+  margin-bottom: 25px;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.left, .right {
+  flex: 1;
+}
+
+.left p, .right p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #2b1712;
+}
+
+.status-pending {
+  background-color: #fff5cc;
+  color: #e6a800;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.status-delivered {
+  background-color: #e7ffe7;
+  color: #28a745;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.status-cancelled {
+  background-color: #ffe6e6;
+  color: #e60000;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #f0c977;
+  margin: 20px 0;
+}
+
+.product-header, .product-row, .total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+
+.total {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.download-btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #ffaa33;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+  margin-right: 50px;
+
+
+  
+}
+

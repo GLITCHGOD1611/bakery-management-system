@@ -1,0 +1,70 @@
+<div class="top">
+  <div class="header">
+    <h1>Order List</h1>
+    <button>
+      <i class="fa-solid fa-user"></i>
+    </button>
+  </div>
+
+  <div class="filters">
+    <div class="searchbar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search by name" [(ngModel)]="searchQuery" (input)="filterOrderList()" />
+    </div>
+
+    <select class="filter1" [(ngModel)]="statusFilter" (change)="filterOrderList()">
+      <option value="All">All</option>
+      <option value="Pending">Pending</option>
+      <option value="Delivered">Delivered</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+
+    <input type="date" class="filter1" [(ngModel)]="selectedDate" (change)="filterOrderList()" />
+  </div>
+</div>
+
+<div class="main">
+  <div class="orderlistcontainer">
+    <table>
+      <thead>
+        <tr>
+          <th>Order Id</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Total</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of filteredOrders; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ order.customerName }}</td>
+          <td>{{ order.date | date: 'dd-MM-yyyy' }}</td>
+          <td>
+        
+           <select name="status"
+  [ngClass]="{
+    'status-pending': order.status === 'Pending',
+    'status-delivered': order.status === 'Delivered',
+    'status-cancelled': order.status === 'Cancelled'
+  }"
+  [(ngModel)]="order.status"
+  (change)="editOrderstatus(order._id, order.status)">
+
+              <option value="Pending">Pending</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </td>
+          <td>{{ order.totalAmount }}</td>
+          <td>
+            <button class="btn" (click)="orderDetail(order._id)"><i class="fa-solid fa-id-card"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+   <button class="lastbtn" (click)="addOrder()">Add Order</button>
+</div>

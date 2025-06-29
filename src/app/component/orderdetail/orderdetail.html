@@ -1,0 +1,51 @@
+<div class="order-container1" >
+  <!-- order content -->
+   <div class="order-container" id="pdf-content">
+  <h1>Order Details</h1>
+
+  <div class="order-info">
+    <div class="left">
+      <p><strong>Order Id</strong><br>#{{ orderDetail._id?.slice(-4) }}</p>
+      <p><strong>Customer</strong><br>{{ orderDetail.customerName }}</p>
+      <p><strong>Payment Method</strong><br>{{ orderDetail.paymentMethod }}</p>
+    </div>
+
+    <div class="right">
+      <p><strong>Status</strong><br>
+        <span [ngClass]="{
+          'status-pending': orderDetail.status === 'Pending',
+          'status-delivered': orderDetail.status === 'Delivered',
+          'status-cancelled': orderDetail.status === 'Cancelled'
+        }">{{ orderDetail.status }}</span>
+      </p>
+      <p><strong>Date</strong><br>{{ orderDetail.date | date: 'M/d/yyyy' }}</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="product-header">
+    <span><strong>Product’s</strong></span>
+    <span><strong>Quantity</strong></span>
+    <span><strong>Total</strong></span>
+  </div>
+
+  <div *ngFor="let product of orderDetail.products" class="product-row">
+    <span>{{ product.name }}</span>
+    <span>{{ product.quantity }}</span>
+    <span>${{ product.total }}</span>
+  </div>
+
+  <hr />
+
+  <div class="total">
+    <strong>Total</strong>
+    <strong>${{ orderDetail.totalAmount }}</strong>
+  </div>
+
+ 
+
+</div>
+ <button class="download-btn" (click)="downloadPDF()">Download PDF</button>
+</div>
+
