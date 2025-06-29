@@ -1,0 +1,48 @@
+<div class="topcontent">
+  <h1>Add Customer</h1>
+  <button>
+    <i class="fa-solid fa-user"></i>
+  </button>
+</div>
+
+<div class="maincontaint">
+  <div class="addcustomercontainer">
+    <div class="formwrapper">
+      <input
+        name="Name"
+        class="inputsingle"
+        [(ngModel)]="newcustomer.name"
+        placeholder="Enter Name"
+      />
+      <input
+        name="Email"
+        class="inputsingle"
+        [(ngModel)]="newcustomer.email"
+        placeholder="Enter Email"
+      />
+
+      <div class="inputrow">
+        <input
+          name="phone"
+          class="inputsingle"
+          [(ngModel)]="newcustomer.phone"
+          placeholder="Enter phone"
+        />
+        
+       
+      </div>
+
+      <input
+        name="address"
+        class="inputsingle"
+        [(ngModel)]="newcustomer.address"
+        placeholder="Enter Address"
+      />
+
+      <div class="buttonrow">
+        <button id="button1" (click)="back()">cancle</button>
+        <button id="button2" (click)="addcustomer()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,63 @@
-<p>products works!</p>
+<div class="abovetop">
+  <div class="topcontent1">
+    <h1>Manage product</h1>
+    <button><i class="fa-solid fa-user"></i></button>
+  </div>
+
+  <div class="topcontent2">
+    <div class="searchbarcontainer">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        type="text"
+        name="searchbar"
+        [(ngModel)]="searchQuery"
+        (input)="filterproductList()"
+        placeholder="Search by name"
+      />
+    </div>
+
+    
+    <select [(ngModel)]="selectedCategory" (change)="onCategoryChange()" class="inputsingle">
+      <option value="All">All</option>
+      <optgroup *ngFor="let group of categoryGroups" [label]="group.name">
+        <option *ngFor="let item of group.items" [value]="item">{{ item }}</option>
+      </optgroup>
+    </select>
+
+    <button class="btn" (click)="addProduct()">Add product</button>
+  </div>
+</div>
+
+<div class="maincontain">
+  <div class="tablecontainer">
+    <table class="producttable">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredproductList; let i = index">
+          <td><img [src]="'http://localhost:5000/uploads/' + product.image" width="80" /></td>
+          <td>{{ product.name | titlecase }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.stock }}</td>
+          <td>{{ product.category | titlecase }}</td>
+          <td>
+            <button class="btn" (click)="editProduct(product._id)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="btn" (click)="deleteProduct(product._id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

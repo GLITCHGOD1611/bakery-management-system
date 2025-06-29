@@ -41,7 +41,7 @@ export class Staff {
     this.filterStaffList();
   }
 
-  deletsatff(id: any) {
+  deletstaff(id: any) {
     this.http.delete(this.baseurl + id).subscribe((res: any) => {
       console.log(res);
       this.ngOnInit(); // reload staff list

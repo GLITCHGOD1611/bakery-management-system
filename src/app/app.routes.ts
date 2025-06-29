@@ -9,27 +9,34 @@ import { Orders } from './component/orders/orders';
 import { Products } from './component/products/products';
 import { Reports } from './component/reports/reports';
 import { Staff } from './component/staff/staff';
+import { Editcustomer } from './component/editcustomer/editcustomer';
+import { Addcustomer } from './component/addcustomer/addcustomer';
+import { Editproduct } from './component/editproduct/editproduct';
+import { Addproduct } from './component/addproduct/addproduct';
 
 export const routes: Routes = [
   // Redirect to login if no path is provided
-     { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: Login },
-    {
+  {
     path: 'navbar',
     component: Navbar,
     children: [
-      
-        { path: 'dashbord', component: Dashboard },
-        {path: 'products',component: Products},
-        {path: 'orders',component: Orders},
-        {path: 'customers',component: Customers},
-        {path:'reports',component: Reports},
-       {path:'Staff',component: Staff},
-       {path:'AddStaff',component: Addstaff},
-       {path :'Editstaff', component: Editstaff},
-        
+
+      { path: 'dashbord', component: Dashboard },
+      { path: 'products', component: Products },
+      { path: 'orders', component: Orders },
+      { path: 'customers', component: Customers },
+      { path: 'reports', component: Reports },
+      { path: 'Staff', component: Staff },
+      { path: 'AddStaff', component: Addstaff },
+      { path: 'Editstaff', component: Editstaff },
+      { path: 'Editcustomer', component: Editcustomer },
+      { path: 'Addcustomer', component: Addcustomer },
+       { path: 'editproduct', component: Editproduct },
+        { path: 'addproduct', component: Addproduct },
     ]
   },
- 
- 
+
+
 ];

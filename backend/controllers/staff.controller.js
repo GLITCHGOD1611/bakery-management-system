@@ -21,6 +21,9 @@ exports.loginStaff = async (req, res) => {
 
 exports.createStaff = async (req, res) => {
   try {
+    if (await Staff.findOne({ email: req.body.email })) {
+      return res.status(400).json({ error: 'Email already exists' });
+    }
     const staff = await Staff.create(req.body);
     res.status(201).json(staff);
   } catch (err) {

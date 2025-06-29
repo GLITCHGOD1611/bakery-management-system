@@ -10,11 +10,12 @@ import { Router } from '@angular/router';
   styleUrl: './addstaff.css'
 })
 export class Addstaff {
+  baseurl="http://localhost:5000/api/staff/"
 
   http=inject(HttpClient);
   router=inject(Router);
    newstaff = {
-    name: null,
+     name: null,
     email: null,
     password: null,
     role: null,
@@ -38,7 +39,7 @@ export class Addstaff {
 
   addstaff() {
     
-      this.http.post('http://localhost:5000/api/staff', this.newstaff).subscribe({
+      this.http.post(this.baseurl, this.newstaff).subscribe({
   next: (res: any) => {
     console.log(res);
     alert('Staff added successfully');

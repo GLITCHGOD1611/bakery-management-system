@@ -1,0 +1,61 @@
+<div class="top">
+    <div class="header">
+        <h1>Edit Product</h1>
+        <button>
+            <i class="fa-solid fa-user"></i>
+        </button>
+    </div>
+</div>
+
+<div class="main">
+    <div class="addproductcontainer">
+        <div class="formwrapper">
+            <!-- Left Box (Image + Description) -->
+            <div class="box1">
+                <div class="image-box">
+                    <label for="img" class="image-upload">
+                        <ng-container *ngIf="!imagePreview; else preview">
+                            <i class="fa-solid fa-image"></i>
+                            <span>Upload Image</span>
+                        </ng-container>
+                        <ng-template #preview>
+                            <img [src]="imagePreview" class="preview-img" />
+                        </ng-template>
+                    </label>
+                    <input type="file" id="img" (change)="onFileSelected($event)" hidden />
+                </div>
+
+                <label class="input-label">Description</label>
+                <textarea [(ngModel)]="product.description" class="inputtextarea"></textarea>
+            </div>
+
+            <!-- Right Box (Form Inputs) -->
+            <div class="box2">
+                <div class="form-fields">
+                    <label class="input-label">Name</label>
+                    <input [(ngModel)]="product.name" class="inputsingle" />
+
+                    <!-- <label class="input-label">Category</label>
+                    <input [(ngModel)]="product.category" class="inputsingle" /> -->
+                    <label class="input-label">Category</label>
+                    <select [(ngModel)]="product.category" name="category" class="inputsingle">
+                        <optgroup *ngFor="let group of categoryGroups" [label]="group.name">
+                            <option *ngFor="let item of group.items" [value]="item">{{ item }}</option>
+                        </optgroup>
+                    </select>
+
+                    <label class="input-label">Price</label>
+                    <input [(ngModel)]="product.price" class="inputsingle" />
+
+                    <label class="input-label">Stock</label>
+                    <input [(ngModel)]="product.stock" class="inputsingle" />
+
+                    <div class="buttons">
+                        <button class="save" (click)="updateProduct()">update</button>
+                        <button class="cancel" (click)="cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
