@@ -131,5 +131,5 @@ Build output will be inside the `dist/` directory.
 ## 👨‍💻 Developer
 
 > Made with ❤️ by Omkar Deshmane  
-> 📧 your.email@example.com  
-> 🔗 [LinkedIn/GitHub/Fiverr link]
+> 📧 omkardeshmane832@gmail.com  
+> 🔗 [https://www.linkedin.com/in/omkar-deshmane-526155340/]
