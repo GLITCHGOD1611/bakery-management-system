@@ -1,59 +1,135 @@
-# BakeryManagementSystem
+# 🎂 Bakery Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+A full-stack bakery management system built using **Angular 20** (Frontend) and **Node.js + Express + MongoDB/MySQL** (Backend).
 
-## Development server
+This system includes:
+- 🧑‍🍳 Staff & Customer Management
+- 📦 Product Listings
+- 🛒 Order Placement & Status Update
+- 📊 Reports and PDF Generation
+- 🔐 Login & Profile Dashboard
 
-To start a local development server, run:
+---
 
+## 🧩 Tech Stack
+
+| Layer      | Technology                     |
+|------------|--------------------------------|
+| Frontend   | Angular 20                     |
+| Backend    | Node.js + Express              |
+| Database   | MongoDB or MySQL               |
+| Styling    | HTML + CSS (Custom Components)|
+| Reports    | jsPDF / html2canvas / PDFKit   |
+
+---
+
+## 🖥️ Frontend Setup (Angular)
+
+### 🔧 1. Install Dependencies
+```bash
+npm install
+```
+
+### 🚀 2. Run the Angular App
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open your browser and visit:  
+➡️ [`http://localhost:4200`](http://localhost:4200)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🗂️ Backend Setup (Node.js + Express)
 
+### 📁 1. Open `backend/` folder
+Open your integrated terminal and navigate to the `backend` folder.
+
+### 🔧 2. Install Backend Dependencies
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 🏃‍♂️ 3. Start the Backend Server
 ```bash
-ng generate --help
+node server.js
 ```
 
-## Building
+If successful, the backend runs on:  
+➡️ [`http://localhost:5000`](http://localhost:5000)
 
-To build the project run:
+Make sure MongoDB/MySQL is running and configured correctly in your DB connection file.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🧪 Running Tests
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### ✅ Unit Tests (Karma)
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+### 🧪 E2E Tests (Optional)
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+> 💡 You can integrate Protractor, Cypress, or Playwright for E2E testing.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📦 Build for Production
+
+To create an optimized build for deployment:
+```bash
+ng build --prod
+```
+
+Build output will be inside the `dist/` directory.
+
+---
+
+## 🔗 Helpful Angular CLI Commands
+
+- Generate Component  
+  ```bash
+  ng generate component component-name
+  ```
+
+- Generate Service  
+  ```bash
+  ng generate service service-name
+  ```
+
+- Full Help  
+  ```bash
+  ng generate --help
+  ```
+
+---
+
+## 📄 Features Overview
+
+✅ Responsive Admin Dashboard  
+✅ Customer, Staff, and Product Management  
+✅ Order Status Update via Dropdown  
+✅ Search, Filter by Status & Date  
+✅ PDF Download of Order Invoice  
+✅ Role-based Navigation (Admin/User Ready)  
+✅ Fully Modular Code Structure
+
+---
+
+## 💡 Notes
+
+- Use `.env` file or `config.js` to manage DB connection strings and secrets.
+- Backend supports both **MongoDB** and **MySQL** (choose based on environment).
+- You can deploy the backend on **Render/Heroku** and frontend on **Netlify/Vercel**.
+
+---
+
+## 👨‍💻 Developer
+
+> Made with ❤️ by Omkar Deshmane  
+> 📧 your.email@example.com  
+> 🔗 [LinkedIn/GitHub/Fiverr link]
