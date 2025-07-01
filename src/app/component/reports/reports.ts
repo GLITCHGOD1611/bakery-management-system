@@ -247,8 +247,8 @@ export class Reports implements AfterViewInit {
         datasets: [{
           label: 'Daily Revenue (₹)',
           data,
-          fill: true,
-          borderColor: '#28a745',
+          fill: false,
+          borderColor: '#F9BB3E',
           tension: 0.3,
           backgroundColor: 'rgba(40, 167, 69, 0.1)'
         }]

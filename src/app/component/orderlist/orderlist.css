@@ -89,9 +89,10 @@
 
 .orderlistcontainer {
   width: 100%;
-  overflow-x: auto;
+  overflow: auto;
   border-radius: 10px;
   box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+  height: 80%;
 }
 
 .orderlistcontainer table {

@@ -25,16 +25,31 @@
   <hr />
 
   <div class="product-header">
-    <span><strong>Product’s</strong></span>
+    <!-- <span><strong>Product’s</strong></span>
     <span><strong>Quantity</strong></span>
-    <span><strong>Total</strong></span>
+    <span><strong>Total</strong></span> -->
   </div>
-
-  <div *ngFor="let product of orderDetail.products" class="product-row">
+<table>
+  <thead>
+    <tr>
+      <th>Product’s</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of orderDetail.products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>${{ product.total }}</td>
+    </tr>
+  </tbody>
+</table>
+  <!-- <div *ngFor="let product of orderDetail.products" class="product-row">
     <span>{{ product.name }}</span>
     <span>{{ product.quantity }}</span>
     <span>${{ product.total }}</span>
-  </div>
+  </div> -->
 
   <hr />
 

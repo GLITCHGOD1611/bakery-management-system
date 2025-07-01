@@ -1,59 +1,79 @@
-<div class="dashboard-header">
-  <h1>Dashboard</h1>
-  <div class="dashboard-search">
-    <i class="fas fa-search"></i>
-    <input type="text" placeholder="Search" />
-    <button class="profile-btn">
-      <i class="fas fa-user"></i>
+<div class="top">
+  <div class="topcontent">
+    <h1>Dashboard</h1>
+    <button>
+      <i class="fa-solid fa-user"></i>
     </button>
   </div>
 </div>
 
-<div class="dashboard-grid">
-  <div class="card stat-card">
-    <i class="fas fa-shopping-cart icon"></i>
-    <div>
-      <p>Total Orders</p>
-      <h3>200</h3>
+<div class="main">
+  <!-- Left Column -->
+  <div class="left">
+    <!-- Total Orders Card -->
+    <div class="card" id="totalorder">
+      <span class="bglogo">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </span>
+      <span class="text">
+        Total Order<br />
+        <b>{{ totalOrders }}</b>
+      </span>
+    </div>
+
+    <!-- Top Product Card -->
+    <div class="card" id="topproduct" *ngIf="topProductDetails">
+      <span class="bglogo">
+        <img [src]="'http://localhost:5000/uploads/' + topProductDetails.image" width="80" alt="Top Product" />
+      </span>
+      <span class="text">
+        Top Product<br />
+        <p style="font-weight: 500; margin: 0;">{{ topProductDetails.name }}</p>
+        <p style="font-size: 0.9rem; margin: 0;">{{ topProduct }}</p>
+      </span>
+    </div>
+
+    <!-- Placeholder for another card -->
+    <div class="card" id="sellsoverviwe">
+      <!-- You can add pie chart or extra stats here -->
     </div>
   </div>
 
-  <div class="card stat-card">
-    <div class="icon-placeholder"></div>
-    <div>
-      <p>Sales</p>
-      <h3>$40</h3>
+  <!-- Right Column -->
+  <div class="right">
+    <!-- Top Stats Row -->
+    <div class="upside">
+      <!-- Total Sales Revenue -->
+      <div class="card" id="totalsales">
+        <span class="bglogos">
+          <i class="fa-solid fa-money-check-dollar"></i>
+        </span>
+        <span class="text">
+          Total Sell Revenue<br />
+          <b>₹{{ totalRevenue }}</b>
+        </span>
+      </div>
+
+      <!-- Total Customers -->
+      <div class="card" id="totalcustomer">
+        <span class="bglogos">
+          <i class="fa-solid fa-users"></i>
+        </span>
+        <span class="text">
+          Total Customers<br />
+          <b>{{ totalcustomers }}</b>
+        </span>
+      </div>
     </div>
-  </div>
 
-  <div class="card stat-card">
-    <div class="icon-placeholder"></div>
-    <div>
-      <p>Low</p>
-      <h3>5</h3>
+    <!-- Chart Section -->
+    <div class="downside">
+      <div class="card" id="ordercountoflstweek">
+        <canvas #lineCanvas></canvas>
+      </div>
+      <div class="card" id="ordercountofthisweek">
+        <!-- Optional: Add another chart/card here -->
+      </div>
     </div>
-  </div>
-
-  <div class="card top-product-card">
-    <div class="icon-placeholder"></div>
-    <div>
-      <p>Top Product</p>
-      <h2 class="highlight-text">Cake</h2>
-    </div>
-  </div>
-
-  <div class="card chart-card">
-    <p>sales overview</p>
-    <img src="assets/chart-line.png" alt="Line Chart" />
-  </div>
-
-  <div class="card donut-chart-card">
-    <p>sales overview</p>
-    <div class="donut">62%</div>
-  </div>
-
-  <div class="card bar-chart-card">
-    <p>Order Summery</p>
-    <img src="assets/chart-bars.png" alt="Bar Chart" />
   </div>
 </div>
