@@ -135,6 +135,7 @@ tbody td {
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+  margin: 3px;
 }
 
 .status-pending {

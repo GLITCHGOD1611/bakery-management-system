@@ -1,1 +1,87 @@
-<p>addorder works!</p>
+<div class="order-container">
+  <div class="order-header">
+  
+    <h1>Add Order</h1>
+    <button class="profile-btn">
+      <i class="fa-solid fa-user"></i>
+    </button>
+  </div>
+
+  <div class="order-main">
+    <!-- Left: Product Search and List -->
+    <div class="left-section">
+     <div class="search-box">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="text" placeholder="Search Product" [(ngModel)]="searchTerm" />
+</div>
+
+<div class="product-list">
+  <div
+    class="product-card"
+    *ngFor="let product of filteredProducts()"
+    (click)="addToCart(product)"
+  >
+    <img [src]="'http://localhost:5000/uploads/' + (product.image ?? '')" width="80" />
+    <div class="product-info">
+      <h3>{{ product.name }}</h3>
+      <p>stock : {{ product.stock }}</p>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+
+    <!-- Right: Cart and Order Summary -->
+    <div class="right-section">
+        
+     <div class="customer-box">
+  <label>Customer</label>
+  <select [(ngModel)]="selectedCustomer" (ngModelChange)="onCustomerChange($event)">
+  <option disabled selected value="">Select Customer</option>
+  <option *ngFor="let c of customerList" [value]="c._id">{{ c.name }}</option>
+  
+</select>
+
+</div>
+
+
+      <div class="cart-box">
+        <h3>Cart Summary</h3>
+
+        <div class="cart-item" *ngFor="let item of cart">
+         <img [src]="'http://localhost:5000/uploads/' + (item.image ?? '')" width="80" />
+          <div class="cart-details">
+            <h4>{{ item.name }}</h4>
+            <p>${{ item.price }}</p>
+          </div>
+          <div class="qty-box">
+            <button (click)="quantitydec(item)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="quantityInc(item)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-method">
+        <select [(ngModel)]="selectedPayment" (ngModelChange)="selectedpaymentmethod()">
+          <option value="" selected>Payment method</option>
+          <!-- payment options -->
+          <option value="Cash">Cash</option>
+          <option value="Online">Online</option>
+          <option value="Card">Card</option>
+         
+          
+        </select>
+        {{ newOrder.paymentMethod }}
+      </div>
+
+      <div class="total-box">
+        <h2>Total</h2>
+        <h2>${{ totalAmount }}</h2>
+      </div>
+
+      <button class="place-order" (click)="createOrder()">Place Order</button>
+    </div>
+  </div>
+</div>

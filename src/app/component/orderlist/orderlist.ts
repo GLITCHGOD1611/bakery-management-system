@@ -81,7 +81,7 @@ export class Orderlist {
     const confirmDelete = confirm('Are you sure you want to delete this order?');
     if (!confirmDelete) return;
 
-    this.http.delete(`${this.baseUrl}/delete/${orderId}`).subscribe({
+    this.http.delete(this.baseUrl + orderId).subscribe({
       next: () => {
         console.log('Order deleted');
         this.loadOrders(); // Refresh list

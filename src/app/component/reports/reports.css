@@ -1,0 +1,126 @@
+/* Container */
+.report-wrapper {
+  max-width: 900px;
+  margin: auto;
+  background-color: #fffcf3;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px #eee;
+  font-family: "Segoe UI", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: 80%;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #3b240b;
+}
+
+.profile-btn {
+  background-color: #fff8ee;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Date Filters */
+.filters {
+  margin-top: 20px;
+}
+
+.filters label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #3b240b;
+}
+
+.date-range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-range input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+}
+
+/* Chart Layout */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.chart-card {
+  background-color: #fff8ee;
+  border: 1px solid #eee0cc;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Make last chart span full width if needed */
+.chart-card:last-child {
+  grid-column: span 2;
+}
+
+/* Actions */
+.actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.export-btn {
+  background-color: #ffa726;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.generate-btn {
+  background-color: #ffaa33;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

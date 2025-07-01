@@ -1,1 +1,45 @@
-<p>reports works!</p>
+<div class="report-wrapper">
+
+  <div class="header">
+    <h1>Generate Report</h1>
+    <button class="profile-btn">
+      <i class="fa-solid fa-user"></i>
+    </button>
+  </div>
+  <div id="report-section">
+    <div class="filters">
+      <label>Date Range</label>
+      <div class="date-range">
+        <input type="date" [(ngModel)]="fromDate" />
+        <span>To</span>
+        <input type="date" [(ngModel)]="toDate" />
+        <button class="generate-btn" (click)="getcharts()">Generate Report</button>
+      </div>
+
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <!-- Bar Chart Here -->
+        <canvas #barCanvas></canvas>
+      </div>
+
+      <div class="chart-card">
+        <!-- Pie Chart Here -->
+        <canvas #donateCanvas></canvas>
+
+      </div>
+
+      <div class="chart-card">
+        <!-- Line Chart Here -->
+        <canvas #lineCanvas></canvas>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="export-btn" (click)="exportPDF()">Export PDF</button>
+
+  </div>
+</div>

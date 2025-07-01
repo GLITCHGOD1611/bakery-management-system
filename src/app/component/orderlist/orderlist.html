@@ -60,6 +60,7 @@
           <td>{{ order.totalAmount }}</td>
           <td>
             <button class="btn" (click)="orderDetail(order._id)"><i class="fa-solid fa-id-card"></i></button>
+            <button class="btn" (click)="deleteOrder(order._id)"><i class="fa-solid fa-trash"></i></button>
           </td>
         </tr>
       </tbody>

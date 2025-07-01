@@ -55,6 +55,7 @@ export class Products {
   loadProducts() {
     this.http.get(this.baseurl).subscribe((res: any) => {
       this.productList = res;
+      console.log(this.productList);
       this.filteredproductList = res;
     });
   }

@@ -3,8 +3,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": []
+    "module": "esnext",                     // ✅ needed for ESM modules like ng2-charts
+    "target": "es2020",                     // ✅ modern JS target
+    "moduleResolution": "node",             // ✅ resolves modules from node_modules
+    "allowSyntheticDefaultImports": true,   // ✅ allows default ESM imports
+    "esModuleInterop": true,                // ✅ compatibility with CommonJS & ESM
+    "types": [],
+    
   },
   "include": [
     "src/**/*.ts"

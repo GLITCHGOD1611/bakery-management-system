@@ -1,4 +1,5 @@
 const Order = require('../models/order');
+const Product = require('../models/product');
 
 // GET /api/order/list
 exports.getAllOrders = async (req, res) => {
@@ -24,14 +25,34 @@ exports.getOrderById = async (req, res) => {
 // POST /api/order/add
 exports.createOrder = async (req, res) => {
   try {
-    const newOrder = new Order(req.body);
+    const orderData = req.body;
+
+    // 🔁 Loop through each ordered product
+    for (const item of orderData.products) {
+      const product = await Product.findById(item.productId);
+
+      if (!product) {
+        return res.status(404).json({ error: `Product not found: ${item.name}` });
+      }
+
+      if (product.stock < item.quantity) {
+        return res.status(400).json({ error: `Insufficient stock for ${product.name}` });
+      }
+
+      // 🧮 Update stock
+      product.stock -= item.quantity;
+      await product.save();
+    }
+
+    // 💾 Save the order
+    const newOrder = new Order(orderData);
     await newOrder.save();
+
     res.status(201).json({ message: 'Order created successfully', order: newOrder });
   } catch (error) {
     res.status(400).json({ error: 'Failed to create order', details: error.message });
   }
 };
-
 // PUT /api/order/update/:id
 exports.updateOrder = async (req, res) => {
   try {
