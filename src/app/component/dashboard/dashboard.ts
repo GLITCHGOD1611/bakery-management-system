@@ -12,7 +12,10 @@ import Chart from 'chart.js/auto';
 })
 export class Dashboard implements AfterViewInit {
   @ViewChild('lineCanvas') lineCanvas?: ElementRef;
+  @ViewChild('donutCanvas') donutCanvas?: ElementRef;
+
   lineChart: any;
+  donutChart: any;
   http = inject(HttpClient);
 
   orders: any[] = [];
@@ -27,6 +30,8 @@ export class Dashboard implements AfterViewInit {
   topProductDetails: any = null;
   productSalesCount: { [productName: string]: number } = {};
 
+  topCustomers: { name: string; total: number }[] = [];
+
   ngAfterViewInit() {
     this.fetchOrders();
     this.fetchcustomers();
@@ -39,31 +44,49 @@ export class Dashboard implements AfterViewInit {
         this.totalOrders = res.length;
         this.totalRevenue = res.reduce((sum, order) => sum + (order.totalAmount || 0), 0);
 
-        const productCountMap: { [name: string]: number } = {};
+        const productQuantityMap: { [name: string]: number } = {};
+        const customerPurchaseMap: { [name: string]: number } = {};
+
         res.forEach(order => {
+          // Tally product quantities
           if (Array.isArray(order.products)) {
-            order.products.forEach((product: { name: string }) => {
-              const name = product.name;
-              productCountMap[name] = (productCountMap[name] || 0) + 1;
+            order.products.forEach((product: { name: string; quantity: number }) => {
+              const name = product.name.trim().toLowerCase();
+              const qty = product.quantity || 1;
+              productQuantityMap[name] = (productQuantityMap[name] || 0) + qty;
             });
+          }
+
+          // Tally customer total purchases
+          const customer = order.customerName?.trim();
+          if (customer) {
+            customerPurchaseMap[customer] = (customerPurchaseMap[customer] || 0) + (order.totalAmount || 0);
           }
         });
 
-        // Top product
-        let max = 0;
-        let top = '';
-        for (const [name, count] of Object.entries(productCountMap)) {
-          if (count > max) {
-            max = count;
-            top = name;
+        // Identify top product
+        let maxQty = 0;
+        let topProductRawName = '';
+        for (const [name, qty] of Object.entries(productQuantityMap)) {
+          if (qty > maxQty) {
+            maxQty = qty;
+            topProductRawName = name;
           }
         }
 
-        this.topProduct = `${top} (${max} sold)`;
-        this.topProductName = top;
+        this.topProduct = `${topProductRawName} (${maxQty} sold)`;
+        this.topProductName = topProductRawName;
+        this.productSalesCount = productQuantityMap;
 
-        this.fetchProduct();  // 🔁 Call after name is ready
-        this.drawLineChart(); // ⏳ Chart after orders loaded
+        // Get top 3 customers
+        this.topCustomers = Object.entries(customerPurchaseMap)
+          .map(([name, total]) => ({ name, total }))
+          .sort((a, b) => b.total - a.total)
+          .slice(0, 3);
+
+        this.fetchProduct();
+        this.drawLineChart();
+        this.drawDonutChart();
       },
       error: (err) => {
         console.error('❌ Failed to fetch orders:', err);
@@ -75,7 +98,9 @@ export class Dashboard implements AfterViewInit {
     this.http.get<any[]>('http://localhost:5000/api/product/').subscribe({
       next: (res: any[]) => {
         this.products = res;
-        this.topProductDetails = this.products.find(p => p.name === this.topProductName);
+        this.topProductDetails = this.products.find(
+          p => p.name.trim().toLowerCase() === this.topProductName
+        );
         console.log('🎯 Top Product:', this.topProductDetails);
       },
       error: (err: any) => {
@@ -130,9 +155,9 @@ export class Dashboard implements AfterViewInit {
           label: 'Orders (Last 7 Days)',
           data,
           fill: true,
-          borderColor: '#007bff',
+          borderColor: '#F8B838',
           tension: 0.3,
-          backgroundColor: 'rgba(0, 123, 255, 0.1)'
+          backgroundColor: '#FFF4D6'
         }]
       },
       options: {
@@ -149,6 +174,42 @@ export class Dashboard implements AfterViewInit {
           title: {
             display: true,
             text: 'Orders in the Last 7 Days'
+          }
+        }
+      }
+    });
+  }
+
+  drawDonutChart() {
+    if (!this.donutCanvas?.nativeElement || !this.productSalesCount) return;
+
+    const labels = Object.keys(this.productSalesCount);
+    const data = Object.values(this.productSalesCount);
+
+    if (this.donutChart) this.donutChart.destroy();
+
+    this.donutChart = new Chart(this.donutCanvas.nativeElement, {
+      type: 'doughnut',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Product Sales Overview',
+          data,
+          backgroundColor: [
+            '#F8B838', '#FF6B6B', '#6BCB77', '#4D96FF', '#C0C0C0', '#E96479', 'rgb(84, 30, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'right'
+          },
+          title: {
+            display: true,
+            text: 'Sales Overview by Product'
           }
         }
       }
