@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './editproduct.css',
 })
 export class Editproduct {
-  baseUrl = 'http://localhost:5000/api/product/';
+  baseUrl = 'https://bakery-management-system-o3hw.onrender.com/api/product/';
   productId: string = '';
   product: any = {
     name: '',

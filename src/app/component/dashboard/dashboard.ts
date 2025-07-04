@@ -38,7 +38,7 @@ export class Dashboard implements AfterViewInit {
   }
 
   fetchOrders() {
-    this.http.get<any[]>('http://localhost:5000/api/orders/').subscribe({
+    this.http.get<any[]>('https://bakery-management-system-o3hw.onrender.com/api/orders/').subscribe({
       next: (res) => {
         this.orders = res;
         this.totalOrders = res.length;
@@ -95,7 +95,7 @@ export class Dashboard implements AfterViewInit {
   }
 
   fetchProduct() {
-    this.http.get<any[]>('http://localhost:5000/api/product/').subscribe({
+    this.http.get<any[]>('https://bakery-management-system-o3hw.onrender.com/api/product/').subscribe({
       next: (res: any[]) => {
         this.products = res;
         this.topProductDetails = this.products.find(
@@ -110,7 +110,7 @@ export class Dashboard implements AfterViewInit {
   }
 
   fetchcustomers() {
-    this.http.get<any[]>('http://localhost:5000/api/customers').subscribe({
+    this.http.get<any[]>('https://bakery-management-system-o3hw.onrender.com/api/customers').subscribe({
       next: (res) => {
         this.totalcustomers = res.length;
       },

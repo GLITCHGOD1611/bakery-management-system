@@ -12,7 +12,7 @@ import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProv
   styleUrl: './orderlist.css'
 })
 export class Orderlist {
- baseUrl: string = 'http://localhost:5000/api/orders/'; // 🌐 Your API base URL
+ baseUrl: string = 'https://bakery-management-system-o3hw.onrender.com/api/orders/'; // 🌐 Your API base URL
 
   orderList: any[] = [];
   filteredOrders: any[] = [];

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./products.css']
 })
 export class Products {
-  baseurl = "http://localhost:5000/api/product/";
+  baseurl = "https://bakery-management-system-o3hw.onrender.com/api/product/";
   productList: any[] = [];
   filteredproductList: any[] = [];
 

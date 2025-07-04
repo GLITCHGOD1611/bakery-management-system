@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   standalone: true
 })
 export class Staff {
-  baseurl: string = 'http://localhost:5000/api/staff/';
+  baseurl: string = 'https://bakery-management-system-o3hw.onrender.com/api/api/apistaff/';
   http = inject(HttpClient);
   router = inject(Router);
 

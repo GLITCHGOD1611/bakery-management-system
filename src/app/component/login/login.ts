@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class Login {
   private router = inject(Router);
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5000/api/staff/login'; // Update with your actual API endpoint
+  private apiUrl = 'https://bakery-management-system-o3hw.onrender.com/api/staff/login'; // Update with your actual API endpoint
 
   username = '';
   password = '';

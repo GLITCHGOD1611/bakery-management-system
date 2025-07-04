@@ -19,7 +19,9 @@ const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
-
+app.get('/', (req, res) => {
+  res.send('Bakery Management System Backend is Running 🚀');
+});
 // Serve static files (images)
 app.use('/uploads', express.static('uploads'));
 

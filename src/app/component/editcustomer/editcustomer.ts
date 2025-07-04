@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class Editcustomer {
 
-   baseurl="http://localhost:5000/api/customers/"
+   baseurl="https://bakery-management-system-o3hw.onrender.com/api/customers/"
 
   updatedcustomer = {
      name: null,

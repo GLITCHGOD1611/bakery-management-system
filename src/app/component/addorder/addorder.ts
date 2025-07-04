@@ -11,9 +11,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './addorder.css'
 })
 export class Addorder {
-  private apiUrl = 'http://localhost:5000/api/orders/';
-  private userApi = 'http://localhost:5000/api/customers';
-  private productApi = 'http://localhost:5000/api/product/';
+  private apiUrl = 'https://bakery-management-system-o3hw.onrender.com/api/orders/';
+  private userApi = 'https://bakery-management-system-o3hw.onrender.com/api/customers';
+  private productApi = 'https://bakery-management-system-o3hw.onrender.com/api/product/';
 
   constructor(private http: HttpClient) {}
 

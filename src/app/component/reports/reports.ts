@@ -69,7 +69,7 @@ export class Reports implements AfterViewInit {
   }
 
   fetchOrders() {
-    this.http.get<any[]>('http://localhost:5000/api/orders/').subscribe({
+    this.http.get<any[]>('https://bakery-management-system-o3hw.onrender.com/api/orders/').subscribe({
       next: (res) => {
         console.log('✅ Orders fetched:', res);
         this.orders = res;

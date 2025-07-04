@@ -17,7 +17,7 @@ import jsPDF from 'jspdf';
   styleUrl: './orderdetail.css'
 })
 export class Orderdetail implements OnInit {
-  baseUrl: string = 'http://localhost:5000/api/orders/'; // Replace with your real endpoint
+  baseUrl: string = 'https://bakery-management-system-o3hw.onrender.com/api/orders/'; // Replace with your real endpoint
   http = inject(HttpClient);
   router = inject(Router);
 

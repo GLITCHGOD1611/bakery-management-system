@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './editstaff.css'
 })
 export class Editstaff implements OnInit {
-  baseurl="http://localhost:5000/api/staff/"
+  baseurl="https://bakery-management-system-o3hw.onrender.com/api/staff/"
 
   updatedstaff = {
      name: null,

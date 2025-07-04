@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './addstaff.css'
 })
 export class Addstaff {
-  baseurl="http://localhost:5000/api/staff/"
+  baseurl="https://bakery-management-system-o3hw.onrender.com/api/staff/"
 
   http=inject(HttpClient);
   router=inject(Router);
