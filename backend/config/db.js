@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://omkardeshmane832:YZZwduAeKWaTyREi@cluster0.vhifpss.mongodb.net/bakeryDB?retryWrites=true&w=majority&appName=Cluster0'
+    await mongoose.connect('mongodb+srv://omkardeshmane832:kalaLASUN1611@cluster0.vhifpss.mongodb.net/bakeryDB?retryWrites=true&w=majority&appName=Cluster0'
     );
     console.log('MongoDB Connected');
   } catch (err) {
